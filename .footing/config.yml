@@ -1,0 +1,64 @@
+project:
+  name: formaldict
+
+toolkits:
+  - name: _base-py37
+    manager: conda
+    tools:
+      - poetry
+      - python==3.7
+
+  - name: _base-py38
+    manager: conda
+    tools:
+      - poetry
+      - python==3.8
+
+  - name: _base-py39
+    manager: conda
+    tools:
+      - poetry
+      - python==3.9
+
+  - name: _base-py310
+    manager: conda
+    tools:
+      - poetry
+      - python==3.10
+
+  - name: py37
+    base: _base-py37
+    manager: pip
+    file: pyproject.toml
+
+  - name: py38
+    base: _base-py38
+    manager: pip
+    file: pyproject.toml
+
+  - name: py39
+    base: _base-py39
+    manager: pip
+    file: pyproject.toml
+
+  - name: py310
+    base: _base-py310
+    manager: pip
+    file: pyproject.toml
+
+jobs:
+  - name: test-py37
+    cmd: pytest
+    toolkit: py37
+
+  - name: test-py38
+    cmd: pytest
+    toolkit: py38
+
+  - name: test-py39
+    cmd: pytest
+    toolkit: py39
+
+  - name: test-py310
+    cmd: pytest
+    toolkit: py310
